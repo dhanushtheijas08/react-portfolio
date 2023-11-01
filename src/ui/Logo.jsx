@@ -24,7 +24,7 @@ export default function Logo({ forNavBar = false }) {
       viewport={{
         once: true,
       }}
-      className={`text-2xl font-Space font-bold text-dark-black ${
+      className={`text-2xl font-Space font-bold text-dark-black dark:text-white ${
         forNavBar ? "ml-5" : "ml-0"
       }`}
     >

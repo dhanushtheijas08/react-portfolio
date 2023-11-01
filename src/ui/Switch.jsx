@@ -2,7 +2,7 @@ import { BsMoon, BsSun } from "react-icons/bs";
 
 import React, { useState } from "react";
 export default function Switch() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   if (theme === "dark") {
     document.body.classList.add("dark");
     document.body.classList.remove("light");
