@@ -15,7 +15,7 @@ const animateVariants = {
   },
 };
 
-export default function Logo({ forNavBar = false }) {
+function Logo({ forNavBar = false }) {
   return (
     <motion.h1
       variants={animateVariants}
@@ -32,3 +32,5 @@ export default function Logo({ forNavBar = false }) {
     </motion.h1>
   );
 }
+
+export default Logo;

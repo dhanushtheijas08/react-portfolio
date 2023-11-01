@@ -1,22 +1,25 @@
 import { BsMoon, BsSun } from "react-icons/bs";
+import React, { useState, useEffect } from "react";
 
-import React, { useState } from "react";
 export default function Switch() {
   const [theme, setTheme] = useState("light");
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    document.body.classList.remove("light");
-  } else {
-    document.body.classList.add("light");
-    document.body.classList.remove("dark");
-  }
-  console.log(theme);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.classList.add("dark");
+      document.body.classList.remove("light");
+    } else {
+      document.body.classList.add("light");
+      document.body.classList.remove("dark");
+    }
+  }, [theme]);
+
   return (
-    <button
-      role="button"
-      onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
-      className="cursor-pointer mx-5"
-    >
+    <button role="button" onClick={toggleTheme} className="cursor-pointer mx-5">
       {theme === "dark" ? (
         <BsSun className="text-[28px]" />
       ) : (
