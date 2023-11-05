@@ -13,6 +13,7 @@ export default function ProfilePic() {
           ease: "easeInOut",
         },
       }}
+      viewport={{ once: true }}
       src={ProfilImage}
       alt="Profile Image"
       className="animate-lower-bounce"

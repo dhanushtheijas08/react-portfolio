@@ -21,7 +21,7 @@ const animateVariants = {
   }),
 };
 
-function NavItem({ item, index }) {
+function NavItem({ item, index, activeLink, setActiveLink }) {
   return (
     <motion.li
       variants={animateVariants}
@@ -29,9 +29,16 @@ function NavItem({ item, index }) {
       whileInView="animate"
       viewport={{ once: true }}
       custom={index}
-      className={`transition-colors duration-200 py-2 px-3 cursor-pointer`}
+      className={`transition-colors relative duration-200 py-2 px-3 cursor-pointer hover:text-gray-700 group `}
+      onClick={() => setActiveLink(index)}
     >
       <a href={`#${item.path}`}>{item.name}</a>
+      {activeLink === index && (
+        <motion.div
+          layoutId="underline"
+          className="absolute w-1/2 h-0.5 bg-gray-800 dark:bg-white left-1/4"
+        ></motion.div>
+      )}
     </motion.li>
   );
 }
@@ -59,7 +66,9 @@ function ResumeButton() {
 
 export default function NavBar() {
   const [shouldVisible, setShouldVisible] = useState(true);
+  const [activeLink, setActiveLink] = useState(null);
   const { scrollY } = useScroll();
+  console.log(activeLink);
 
   useMotionValueEvent(scrollY, "change", (latest) =>
     latest < scrollY.getPrevious()
@@ -83,7 +92,13 @@ export default function NavBar() {
   ];
 
   const renderList = data.map((item, index) => (
-    <NavItem key={item.name} item={item} index={index} />
+    <NavItem
+      key={item.name}
+      item={item}
+      index={index}
+      activeLink={activeLink}
+      setActiveLink={setActiveLink}
+    />
   ));
 
   return (
@@ -93,15 +108,17 @@ export default function NavBar() {
         hidden: { y: "-150%", transition: { type: "just" } },
       }}
       animate={shouldVisible ? "visible" : "hidden"}
-      className="flex z-10 centered-div fixed w-[95%] justify-between items-center border border-gray-200 rounded-md dark:border-gray-800 bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg px-1 py-3"
+      className="flex z-10 w-[95%] fixed justify-between items-center border border-gray-200 rounded-md dark:border-gray-800 bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg px-1 py-3"
     >
       <Logo forNavBar />
 
       <ul className="flex gap-2 items-center text-lg font-nunito font-semibold dark:text-white">
         {renderList}
+      </ul>
+      <div className="flex">
         <ResumeButton />
         <Switch />
-      </ul>
+      </div>
     </motion.nav>
   );
 }
