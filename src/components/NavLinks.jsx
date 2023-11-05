@@ -26,7 +26,7 @@ function NavLinks({ item, index, activeLink, setActiveLink }) {
       className="transition-colors relative duration-200 py-2 px-3 cursor-pointer hover:text-gray-600 dark:hover:text-gray-400 group"
       onClick={() => setActiveLink(index)}
     >
-      <a href={`#${item.path}`}>{item.name}</a>
+      <a href={`${item.path}`}>{item.name}</a>
       {/* underline */}
       {activeLink === index && (
         <motion.div

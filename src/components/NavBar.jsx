@@ -25,7 +25,7 @@ const animateVariants = {
 
 export default function NavBar() {
   const [shouldVisible, setShouldVisible] = useState(true);
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(0);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) =>
@@ -36,16 +36,20 @@ export default function NavBar() {
 
   const navLinks = [
     {
+      name: "Home",
+      path: "",
+    },
+    {
       name: "Projects",
-      path: "projects",
+      path: "#projects",
     },
     {
       name: "About",
-      path: "about",
+      path: "#about",
     },
     {
       name: "Contact",
-      path: "contact",
+      path: "#contact",
     },
   ];
 
