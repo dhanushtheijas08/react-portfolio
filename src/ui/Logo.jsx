@@ -9,7 +9,7 @@ const animateVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
+      duration: 0.6,
       ease: "easeInOut",
     },
   },

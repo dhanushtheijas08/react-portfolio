@@ -2,7 +2,7 @@ import { BsMoon, BsSun } from "react-icons/bs";
 import React, { useState, useEffect } from "react";
 
 export default function Switch() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));

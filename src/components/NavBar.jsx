@@ -14,9 +14,9 @@ const animateVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05 * index,
-      duration: 0.45,
-      ease: "easeInOut",
+      delay: 0.06 * index,
+      duration: 0.6,
+      ease: "linear",
     },
   }),
 };
@@ -44,9 +44,9 @@ function ResumeButton() {
         opacity: 1,
         y: 0,
         transition: {
-          delay: 0.05 * 3,
-          duration: 0.45,
-          ease: "easeInOut",
+          delay: 0.06 * 3,
+          duration: 0.6,
+          ease: "linear",
         },
       }}
     >
@@ -93,7 +93,7 @@ export default function NavBar() {
         hidden: { y: "-150%", transition: { type: "just" } },
       }}
       animate={shouldVisible ? "visible" : "hidden"}
-      className="flex z-10 fixed justify-between items-center w-full border border-gray-200 rounded-md dark:border-gray-800 bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg px-1 py-3"
+      className="flex z-10 centered-div fixed w-[95%] justify-between items-center border border-gray-200 rounded-md dark:border-gray-800 bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg px-1 py-3"
     >
       <Logo forNavBar />
 
