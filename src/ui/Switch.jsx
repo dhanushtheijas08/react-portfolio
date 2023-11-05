@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Switch() {
   const [theme, setTheme] = useState("light");
-
+  const classname = "text-black dark:text-white text-[28px]";
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
@@ -21,9 +21,9 @@ export default function Switch() {
   return (
     <button role="button" onClick={toggleTheme} className="cursor-pointer mx-5">
       {theme === "dark" ? (
-        <BsSun className="text-[28px]" />
+        <BsSun className={classname} />
       ) : (
-        <BsMoon className="text-[28px]" />
+        <BsMoon className={classname} />
       )}
     </button>
   );
