@@ -14,7 +14,7 @@ const animateVariants = {
   },
 };
 
-function Logo({ forNavBar = false }) {
+function Logo() {
   return (
     <motion.h1
       variants={animateVariants}
@@ -23,9 +23,7 @@ function Logo({ forNavBar = false }) {
       viewport={{
         once: true,
       }}
-      className={`text-xl md:text-2xl font-Space font-bold text-dark-black dark:text-white ${
-        forNavBar ? "ml-4 md:ml-5" : "ml-0"
-      }`}
+      className="text-xl md:text-2xl font-Space font-bold text-dark-black dark:text-white"
     >
       Dhanush Theijas
     </motion.h1>

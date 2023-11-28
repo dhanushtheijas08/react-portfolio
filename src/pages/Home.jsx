@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import NavBar from "../components/NavBar";
 import ProfilePic from "../ui/ProfilePic";
 import { motion } from "framer-motion";
